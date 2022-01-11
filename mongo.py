@@ -21,4 +21,11 @@ for i in parse_json:
         collection.insert_one(i)
         print("id nao existe")
 
+def get_all_articles():
+    r = collection.find({})
+    for i in r:
+        print(i["title"])
+    
+    return r
+
 
