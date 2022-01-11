@@ -22,10 +22,20 @@ for i in parse_json:
         print("id nao existe")
 
 def get_all_articles():
-    r = collection.find({})
+    r = collection.find({}).limit(5)
     for i in r:
-        print(i["title"])
-    
+        print(i["id"], i["title"])
     return r
+
+def get_article_id(id):
+    print(id)
+    r = collection.find_one({"id":id})
+    print(r)
+
+    if r:
+        print(r["id"], r["title"])
+        return r
+    else:
+        return {"Status": "404", "Mensagem": "Not Found"}
 
 
