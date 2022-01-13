@@ -1,13 +1,16 @@
-# spaceflightAPIcoodesh
+******************************************************************************* fastAPI Backend for Coodesh *******************************************************************************
 
-aplicação desenvolvida para consumir a API Space Flight News de forma a cumprir os desafios propostos no processo seletivo da Coodesh
+Aplicação desenvolvida para consumir a API Space Flight News de forma a cumprir os desafios propostos no processo seletivo da Coodesh
 
-Tecnologias: 
--Python
--MongoDB
--fastAPI
+Principais Tecnologias:
+    -Python
+    -MongoDB
+    -fastAPI
 
+*************************************************************************************** Modo de uso ***************************************************************************************
+Uso: para inicialiazr o serviço rode o comando: uvicorn index:app --reload
+Após inicializado a api estará acessível localmente e o banco de dados poderá ser acessado através dos endpoints presentes em: index.py
+O serviço de atualização diária dos artigos ocorrerá automaticamente enquanto o programa estiver sendo executado
 
-******************Como instalar e usar o projeto (instruções)********************
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 This is a challenge by Coodesh
