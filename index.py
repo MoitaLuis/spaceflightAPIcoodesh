@@ -7,7 +7,7 @@ import time
 
 app = FastAPI()
 
-# Horário de atualização dos artigos
+# Horário de atualização dos artigos.
 schedule.every().day.at("09:00").do(refresh_articles)
 
 # Retornar um Status: 200 e uma Mensagem "Back-end Challenge 2021 🏅 - Space Flight News"
@@ -15,39 +15,39 @@ schedule.every().day.at("09:00").do(refresh_articles)
 def home():
     return {"Status": "200", "Mensagem": "Back-end Challenge 2021 🏅 - Space Flight News"}
 
-# Listar todos os artigos da base de dados, utilizar o sistema de paginação para não sobrecarregar a REQUEST
+# Listar todos os artigos da base de dados, utilizar o sistema de paginação para não sobrecarregar a REQUEST.
 @app.get("/articles")
 def articles():
     r = get_all_articles()
     return r
 
-# Obter a informação somente de um artigo
+# Obter a informação de somente um artigo.
 @app.get("/articles/{id}")
 def articles_id(id: int):
     r = get_article_by_id(id)
     r["_id"] = str(r["_id"])
     return r
 
-# Adicionar um artigo
+# Adicionar um artigo.
 @app.post("/new-article")
 def articles_post(article: artigo):
     add_article(article.__dict__)
-    return {"Status": "200", "Mensagem": "Artigo adicionado"}
+    return {"Status": "200", "Mensagem": "Artigo adicionado com sucesso!"}
 
 
-# Atualizar um artigo baseado no id
+# Atualizar um artigo baseado no id.
 @app.put("/update-article/{id}")
 def articles_put(id: int, article: artigo):
     edit_article(id, article.__dict__)
-    return {"Status": "200", "Mensagem": "Artigo editado"}
+    return {"Status": "200", "Mensagem": "Artigo editado com sucesso"}
 
-# Remover um artigo baseado no id
+# Remover um artigo baseado no id.
 @app.delete("/delete-article/{id}")
 def articles_delete(id: int):
     delete_article(id)
-    return {"Status": "200", "Mensagem": "Artigo deletado"}
+    return {"Status": "200", "Mensagem": "Artigo deletado com sucesso!"}
 
-# Atualizar todos os artigos
+# Atualizar todos os artigos.
 while True:
     schedule.run_pending()
     time.sleep(1)
