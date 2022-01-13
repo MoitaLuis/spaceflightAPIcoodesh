@@ -52,3 +52,16 @@ def edit_article(id, article):
 def delete_article(id):
     collection.delete_one({"id":id})
     print("Artigo deletado")
+
+# atualiza todos os artigos
+def refresh_articles():
+    response_API = requests.get('https://api.spaceflightnewsapi.net/v3/articles')
+    parse_json = json.loads(response_API.text)
+    for i in parse_json:
+        #verificar se id ja esta no banco
+        if collection.find_one({"id": i["id"]}):
+            print("id ja existe")
+        else:
+            collection.insert_one(i)
+            print("id nao existe")
+    print("atualizado com sucesso!")
