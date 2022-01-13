@@ -39,12 +39,12 @@ def get_article_by_id(id):
 # adiciona um artigo
 def add_article(article):
     print(article)
-    print(type(article))
     collection.insert_one(article)
     print("Artigo adicionado")
 
 # edita um artigo
 def edit_article(id, article):
+    print(article)
     collection.update_one({"id":id}, {"$set": article})
     print("Artigo editado")
 

@@ -29,13 +29,13 @@ def articles_post(article: artigo):
     add_article(article.__dict__)
     return {"Status": "200", "Mensagem": "Artigo adicionado"}
 
-""""
+
 # Atualizar um artigo baseado no id
-@app.put("/articles/{id}")
-def articles_put(id: int, article):
-    edit_article(id, article)
+@app.put("/update-article/{id}")
+def articles_put(id: int, article: artigo):
+    edit_article(id, article.__dict__)
     return {"Status": "200", "Mensagem": "Artigo editado"}
-"""
+
 # Remover um artigo baseado no id
 @app.delete("/delete-article/{id}")
 def articles_delete(id: int):
