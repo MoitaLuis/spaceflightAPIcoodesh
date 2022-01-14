@@ -3,10 +3,7 @@ from requests.models import to_native_string
 from mongo import get_all_articles, get_article_by_id, add_article, edit_article, delete_article
 from models import artigo
 
-
 app = FastAPI()
-
-
 
 # Retornar um Status: 200 e uma Mensagem "Back-end Challenge 2021 🏅 - Space Flight News"
 @app.get("/")
@@ -44,4 +41,3 @@ def articles_put(id: int, article: artigo):
 def articles_delete(id: int):
     delete_article(id)
     return {"Status": "200", "Mensagem": "Artigo deletado com sucesso!"}
-
