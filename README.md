@@ -7,8 +7,15 @@ Principais Tecnologias:
     -MongoDB
     -fastAPI
 
-*************************************************************************************** Modo de uso ***************************************************************************************
-Uso: Para inicialiazr o serviço são necessários 2 comandos: 
+************************************************************************************* Instalação e uso ************************************************************************************
+Instalação:
+
+Para instalar todas as dependências necessárias é preciso rodar o seguinte comando:
+pip install -r requirements.txt
+
+Uso:
+
+Para inicialiazr o serviço são necessários 2 comandos: 
 - uvicorn index:app --reload
 - uvicorn cron:app --reload
 Desta forma, os endpoints ficarão acesíveis e ao mesmo tempo será executada a atualização diária dos artigos às 09:00
