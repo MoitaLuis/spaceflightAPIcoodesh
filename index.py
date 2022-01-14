@@ -1,14 +1,12 @@
 from fastapi import FastAPI
 from requests.models import to_native_string
-from mongo import get_all_articles, get_article_by_id, add_article, edit_article, delete_article, refresh_articles
+from mongo import get_all_articles, get_article_by_id, add_article, edit_article, delete_article
 from models import artigo
-import schedule
-import time
+
 
 app = FastAPI()
 
-# Horário de atualização dos artigos.
-schedule.every().day.at("09:00").do(refresh_articles)
+
 
 # Retornar um Status: 200 e uma Mensagem "Back-end Challenge 2021 🏅 - Space Flight News"
 @app.get("/")
@@ -47,7 +45,3 @@ def articles_delete(id: int):
     delete_article(id)
     return {"Status": "200", "Mensagem": "Artigo deletado com sucesso!"}
 
-# Atualizar todos os artigos.
-while True:
-    schedule.run_pending()
-    time.sleep(1)

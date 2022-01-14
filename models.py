@@ -1,7 +1,12 @@
 from typing import Optional
 from pydantic import BaseModel
 
+class t1(BaseModel):
+    id: str
+    provider: Optional[str]
+
 class artigo(BaseModel):
+    id: int
     featured: Optional[bool] = False
     title: str
     url: str
@@ -9,5 +14,7 @@ class artigo(BaseModel):
     newsSite: str
     summary: Optional[str]
     publishedAt: str
-    launches: Optional[list]
-    events: Optional[list]
+    launches: Optional[t1]
+    events: Optional[t1]
+
+
